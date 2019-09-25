@@ -1,19 +1,19 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { AppState } from "./store";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { AppState } from './store';
 
-import "./main.css";
+import './main.css';
 
-import { SystemState } from "./store/system/types";
-import { updateSession } from "./store/system/actions";
+import { SystemState } from './store/system/types';
+import { updateSession } from './store/system/actions';
 
-import { ChatState } from "./store/chat/types";
-import { sendMessage } from "./store/chat/actions";
+import { ChatState } from './store/chat/types';
+import { sendMessage } from './store/chat/actions';
 
-import ChatHistory from "./ChatHistory";
-import ChatInterface from "./ChatInterface";
+import ChatHistory from './ChatHistory';
+import ChatInterface from './ChatInterface';
 
-import { thunkSendMessage } from "./thunks";
+import { thunkSendMessage } from './thunks';
 
 interface AppProps {
   sendMessage: typeof sendMessage;
@@ -27,23 +27,23 @@ export type UpdateMessageParam = React.SyntheticEvent<{ value: string }>;
 
 class App extends React.Component<AppProps> {
   state = {
-    message: ""
+    message: ''
   };
 
   componentDidMount() {
     this.props.updateSession({
       loggedIn: true,
-      session: "my_session",
-      userName: "myName"
+      session: 'my_session',
+      userName: 'myName'
     });
     this.props.sendMessage({
-      user: "Chat Bot",
+      user: 'Chat Bot',
       message:
-        "This is a very basic chat application written in typescript using react and redux. Feel free to explore the source code.",
+        'This is a very basic chat application written in typescript using react and redux. Feel free to explore the source code.',
       timestamp: new Date().getTime()
     });
 
-    this.props.thunkSendMessage("This message was sent by a thunk!");
+    this.props.thunkSendMessage('This message was sent by a thunk!');
   }
 
   updateMessage = (event: UpdateMessageParam) => {
@@ -56,7 +56,7 @@ class App extends React.Component<AppProps> {
       message: message,
       timestamp: new Date().getTime()
     });
-    this.setState({ message: "" });
+    this.setState({ message: '' });
   };
 
   render() {
