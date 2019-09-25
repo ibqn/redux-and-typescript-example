@@ -1,4 +1,4 @@
-import { Message, SEND_MESSAGE, DELETE_MESSAGE } from "./types";
+import { Message, SEND_MESSAGE, DELETE_MESSAGE } from './types';
 
 export function sendMessage(newMessage: Message) {
   return {
