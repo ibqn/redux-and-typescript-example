@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Message } from "./store/chat/types";
+import React, { FunctionComponent } from 'react';
+import { Message } from './store/chat/types';
 
 interface ChatHistoryProps {
   messages: Message[];
 }
 
-const ChatHistory: React.SFC<ChatHistoryProps> = ({ messages }) => {
+const ChatHistory: FunctionComponent<ChatHistoryProps> = ({ messages }) => {
   return (
     <div className="chat-history">
       {messages.map(message => (
